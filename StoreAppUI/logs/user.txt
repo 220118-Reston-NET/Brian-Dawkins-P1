@@ -1,0 +1,41 @@
+2022-02-16 10:35:41.258 -05:00 [INF] Displaying AddCustomer Menu to user
+2022-02-16 10:35:49.270 -05:00 [INF] Displaying AddCustomer Menu to user
+2022-02-16 10:35:56.390 -05:00 [INF] Displaying AddCustomer Menu to user
+2022-02-16 10:36:02.957 -05:00 [INF] Displaying AddCustomer Menu to user
+2022-02-16 10:36:04.861 -05:00 [INF] Adding customer 
+Id: 0
+Name: QC Presentation
+Address: Revature Lane
+PhoneNumber: 111-111-1111
+
+2022-02-16 10:36:05.370 -05:00 [INF] Successful at adding customer!
+2022-02-16 10:36:05.370 -05:00 [INF] Displaying MainMenu to user
+2022-02-16 10:36:08.901 -05:00 [INF] Displaying SearchCustomer Menu to user
+2022-02-16 10:36:25.236 -05:00 [INF] Displaying MainMenu to user
+2022-02-16 10:36:31.844 -05:00 [INF] Displaying View Inventory Menu to user
+2022-02-16 10:36:53.355 -05:00 [INF] Displaying MainMenu to user
+2022-02-16 10:36:58.307 -05:00 [INF] Displaying Replenish Inventory Menu to user
+2022-02-16 10:37:09.992 -05:00 [INF] Successfully Replenished Store
+2022-02-16 10:37:12.611 -05:00 [INF] Displaying MainMenu to user
+2022-02-16 10:37:14.067 -05:00 [INF] Displaying View Inventory Menu to user
+2022-02-16 10:37:23.570 -05:00 [INF] Displaying MainMenu to user
+2022-02-16 10:37:36.754 -05:00 [INF] Displaying Get Customer Order Menu to user
+2022-02-16 10:37:43.915 -05:00 [INF] Successful at getting Customer Order
+2022-02-16 10:37:50.938 -05:00 [INF] Displaying MainMenu to user
+2022-02-16 10:37:57.258 -05:00 [INF] Displaying View Order History Menu to user
+2022-02-16 10:38:14.241 -05:00 [INF] Displaying MainMenu to user
+2022-02-16 10:38:22.249 -05:00 [INF] Displaying Place Order Menu to user
+2022-02-16 10:38:25.016 -05:00 [INF] User is placing order
+2022-02-16 10:38:29.592 -05:00 [INF] Displaying ShopUI Menu to user
+2022-02-16 10:38:29.623 -05:00 [INF] User is being displayed ShopUI Menu
+2022-02-16 10:38:37.553 -05:00 [INF] Displaying ShopMenu to user
+2022-02-16 10:38:37.647 -05:00 [INF] Products Have Been Shown
+2022-02-16 10:38:40.456 -05:00 [INF] Order Started
+2022-02-16 10:38:48.951 -05:00 [INF] Displaying ShopMenu to user
+2022-02-16 10:38:49.042 -05:00 [INF] Products Have Been Shown
+2022-02-16 10:38:50.904 -05:00 [INF] Order has been submitted
+2022-02-16 10:38:53.943 -05:00 [INF] Displaying MainMenu to user
+2022-02-16 10:39:00.256 -05:00 [INF] Exiting application
+2022-02-16 10:41:20.318 -05:00 [INF] Displaying View Order History Menu to user
+2022-02-16 10:41:33.050 -05:00 [INF] Displaying MainMenu to user
+2022-02-16 10:41:37.370 -05:00 [INF] Exiting application
