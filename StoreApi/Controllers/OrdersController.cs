@@ -25,11 +25,11 @@ namespace StoreApi.Controllers
         }
 
         // GET: api/Orders/5
-        [HttpGet("{id}", Name = "Get")]
-        public string Get(int id)
-        {
-            return "value";
-        }
+        // [HttpGet("{id}", Name = "Get")]
+        // public string Get(int id)
+        // {
+        //     return "value";
+        // }
 
         // POST: api/Orders
         [HttpPost]

@@ -19,7 +19,7 @@ namespace StoreApi.Controllers
             _storeBL = p_storeBL;
         }
         // GET: api/Customer
-        [HttpGet]
+        [HttpGet("GetAll")]
         public IActionResult GetAllCustomers()
         {
             try
@@ -34,10 +34,36 @@ namespace StoreApi.Controllers
             }
         }
         // GET: api/Customer/5
-        [HttpGet("{id}", Name = "Get")]
-        public string Get(int id)
+        [HttpGet("GetById")]
+        public IActionResult GetCustomerById(int customerId)
         {
-            return "value";
+            try
+            {
+               return Ok(_storeBL.GetCustomerByID(customerId));  
+            }
+            catch (SqlException)
+            {
+                //The API is responsible for sending the right resource and the right status code
+                //In this case if it was unable to connect to the database, it will give a 404 status code
+                return NotFound();
+            }
+           
+        }
+
+        [HttpGet("SearchCustomer")]
+        public IActionResult SearchCustomer(string c_name)
+        {
+            try
+            {
+               return Ok(_storeBL.SearchCustomer(c_name));  
+            }
+            catch (SqlException)
+            {
+                //The API is responsible for sending the right resource and the right status code
+                //In this case if it was unable to connect to the database, it will give a 404 status code
+                return NotFound();
+            }
+           
         }
 
         // POST: api/Customer
