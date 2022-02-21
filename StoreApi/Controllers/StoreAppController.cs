@@ -26,7 +26,7 @@ using StoreBL;
 
     "-outDir Controllers" - Puts the controller inside the controller folder in api project
 
-    "-action" - Adds in action(methods) in your controller
+    "-actions" - Adds in action(methods) in your controller
 */
 namespace StoreApi.Controllers
 {
@@ -42,11 +42,11 @@ namespace StoreApi.Controllers
 
         // GET: api/StoreApp
         [HttpGet]
-        public IActionResult GetAllCustomers()
+        public IActionResult GetAllStores()
         {
             try
             {
-                return Ok(_storeBL.GetAllCustomers());
+                return Ok(_storeBL.GetAllStores());
             }
             catch (SqlException)
             {
