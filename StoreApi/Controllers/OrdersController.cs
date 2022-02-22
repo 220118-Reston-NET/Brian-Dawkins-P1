@@ -1,5 +1,6 @@
 using System;
 using System.Collections.Generic;
+using System.Data.SqlClient;
 using System.Linq;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Http;
@@ -18,18 +19,36 @@ namespace StoreApi.Controllers
             _storeBL = p_storeBL;
         }
         // GET: api/Orders
-        [HttpGet]
-        public IEnumerable<string> Get()
+        [HttpGet("CustomerIdOrders")]
+        public IActionResult GetOrdersByCustomerId(int c_customerId)
         {
-            return new string[] { "value1", "value2" };
+            try
+            {
+                return Ok(_storeBL.GetOrdersByCustomerId(c_customerId));
+            }
+            catch (SqlException)
+            {
+                //The API is responsible for sending the right resource and the right status code
+                //In this case if it was unable to connect to the database, it will give a 404 status code
+                return NotFound();
+            }
         }
 
-        // GET: api/Orders/5
-        // [HttpGet("{id}", Name = "Get")]
-        // public string Get(int id)
-        // {
-        //     return "value";
-        // }
+        //GET: api/Orders/5
+        [HttpGet("StoreIdOrders")]
+        public IActionResult  GetOrdersByStoreId(int c_storeId)
+        {
+            try
+            {
+                return Ok(_storeBL.GetOrdersByStoreId(c_storeId));
+            }
+            catch (SqlException)
+            {
+                //The API is responsible for sending the right resource and the right status code
+                //In this case if it was unable to connect to the database, it will give a 404 status code
+                return NotFound();
+            }
+        }
 
         // POST: api/Orders
         [HttpPost]

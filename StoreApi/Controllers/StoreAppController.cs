@@ -56,12 +56,37 @@ namespace StoreApi.Controllers
             }
         }
 
-        // GET: api/StoreApp/5
-        // [HttpGet("{id}", Name = "Get")]
-        // public string Get(int id)
-        // {
-        //     return "value";
-        // }
+        //GET: api/StoreApp/5
+        [HttpGet("ProductsByID")]
+         public IActionResult GetProductsByStoreId(int c_storeId)
+        {
+            try
+            {
+                return Ok(_storeBL.GetProductsByStoreId(c_storeId));
+            }
+            catch (SqlException)
+            {
+                //The API is responsible for sending the right resource and the right status code
+                //In this case if it was unable to connect to the database, it will give a 404 status code
+                return NotFound();
+            }
+        }
+
+                // GET: api/StoreApp
+        [HttpGet("ViewInventory")]
+        public IActionResult ViewInventory(int c_storeId)
+        {
+            try
+            {
+                return Ok(_storeBL.ViewInventory(c_storeId));
+            }
+            catch (SqlException)
+            {
+                //The API is responsible for sending the right resource and the right status code
+                //In this case if it was unable to connect to the database, it will give a 404 status code
+                return NotFound();
+            }
+        }
 
         // POST: api/StoreApp
         [HttpPost]
