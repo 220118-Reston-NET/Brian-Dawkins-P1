@@ -6,6 +6,7 @@ using System.Threading.Tasks;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using StoreBL;
+using StoreFrontModel;
 
 /*
     Auto generate by utilizing aspnet-codegenerator tool
@@ -40,6 +41,10 @@ namespace StoreApi.Controllers
             _storeBL = p_storeBL;
         }
 
+        /*
+            [HttpGet] data annotation basically tells the compiler that the method will be an action inside of a controller
+            specifally this will handle a GET request from the client and send a http response
+        */
         // GET: api/StoreApp
         [HttpGet]
         public IActionResult GetAllStores()
@@ -55,6 +60,12 @@ namespace StoreApi.Controllers
                 return NotFound();
             }
         }
+
+        /*
+            Parameterized action will help you get information from the client and to do some process based on that action
+            Yo have to use "{nameOfParameter}" to specify what you need
+            Don't forget to put it as a parameter on the action with the appropriate datatype
+        */
 
         //GET: api/StoreApp/5
         [HttpGet("ProductsByID")]
@@ -95,9 +106,19 @@ namespace StoreApi.Controllers
         }
 
         // PUT: api/StoreApp/5
-        [HttpPut("{id}")]
-        public void Put(int id, [FromBody] string value)
+        [HttpPut("UpdateInventory")]
+        public IActionResult Put([FromQuery] int c_storeId, int c_productId, int c_quantity)
         {
+
+            try
+            {
+                return Ok(_storeBL.ReplenishInventory(c_storeId, c_productId, c_quantity));
+            }
+            catch (System.Exception ex)
+            {
+                
+                return Conflict(ex.Message);
+            }
         }
 
         // DELETE: api/StoreApp/5

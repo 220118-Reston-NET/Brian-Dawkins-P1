@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Data.SqlClient;
 using System.Linq;
 using System.Threading.Tasks;
+using CustomerModel;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using StoreBL;
@@ -66,16 +67,31 @@ namespace StoreApi.Controllers
            
         }
 
-        // POST: api/Customer
-        [HttpPost]
-        public void Post([FromBody] string value)
+        /*
+            [FromBody] datat annotation specifies that this action will look inside of the HTTP request body (which is in a json format) to grab the information it needs
+            Usually helpful for large amount of data (creating an account)
+
+            [HttpPost] This action will handle any post request from the client
+        */
+        [HttpPost("AddCustomer")]
+        public IActionResult Post([FromBody] Customer c_customer)
         {
+            try
+            {
+                return Ok(_storeBL.AddCustomer(c_customer));
+            }
+            catch (System.Exception ex)
+            {
+                
+                return Conflict(ex.Message);
+            }
         }
 
         // PUT: api/Customer/5
         [HttpPut("{id}")]
         public void Put(int id, [FromBody] string value)
         {
+            
         }
 
         // DELETE: api/Customer/5
