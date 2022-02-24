@@ -20,7 +20,7 @@ jobs:
     
     runs-on: ubuntu-latest # We are stating that the Github server/computer will run on the Linux OS
     environment:
-      name:'Production'
+      name: 'Production'
     defaults: 
       run:
         working-directory: ./ # This might differ depending on where you project/app is in your remote repo
