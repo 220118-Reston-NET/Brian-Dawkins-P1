@@ -78,7 +78,7 @@ namespace StoreApi.Controllers
         {
             try
             {
-                return Ok(_storeBL.AddCustomer(c_customer));
+                return Created("Successfully added",_storeBL.AddCustomer(c_customer));
             }
             catch (System.Exception ex)
             {
