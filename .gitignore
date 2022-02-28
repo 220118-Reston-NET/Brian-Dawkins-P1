@@ -1,6 +1,7 @@
 bin
 obj
 
+
 StoreAppUI/appsettings.json
 StoreApi/appsettings.json
 publish

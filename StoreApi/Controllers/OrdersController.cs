@@ -6,6 +6,7 @@ using System.Threading.Tasks;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using StoreBL;
+using StoreFrontModel;
 
 namespace StoreApi.Controllers
 {
@@ -51,10 +52,20 @@ namespace StoreApi.Controllers
         }
 
         // POST: api/Orders
-        [HttpPost]
-        public void Post([FromBody] string value)
-        {
-        }
+        // [HttpPost("PlaceOrder")]
+        // public IActionResult Post(int c_customerId, [FromBody] List<LineItems> c_cart, int c_storeId, int c_total)
+        // {
+        //     try
+        //     {
+        //        return Created("Successfully Created", _storeBL.PlaceOrder(c_customerId, c_storeId, c_total, c_cart)); 
+        //     }
+        //     catch (System.Exception ex)
+        //     {
+                
+        //         return Conflict(ex.Message);
+        //     }
+            
+        // }
 
         // PUT: api/Orders/5
         [HttpPut("{id}")]

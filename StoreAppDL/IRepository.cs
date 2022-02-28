@@ -1,7 +1,6 @@
 ﻿using CustomerModel;
 using OrderModel;
 using StoreFrontModel;
-using LineItemModel;
 using StoreAppModel;
 
 namespace StoreAppDL
@@ -13,7 +12,7 @@ namespace StoreAppDL
     ///- Just think of Data layer as the delivery man of your uber eats. You definitely dont want your delivery man to touch
     /// the food he is delivering and just give it to you so you can do whatever you want with it.   
     /// </summary>
-public interface IRepository
+    public interface IRepository
 {
     /// <summary>
     /// Add a customer to the database
