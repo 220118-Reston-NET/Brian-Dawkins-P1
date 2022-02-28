@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Data.SqlClient;
 using System.Linq;
 using System.Threading.Tasks;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using StoreBL;
@@ -107,6 +108,7 @@ namespace StoreApi.Controllers
 
         // PUT: api/StoreApp/5
         [HttpPut("UpdateInventory")]
+        [Authorize(Roles = "Admin")]
         public IActionResult Put([FromQuery] int c_storeId, int c_productId, int c_quantity)
         {
 

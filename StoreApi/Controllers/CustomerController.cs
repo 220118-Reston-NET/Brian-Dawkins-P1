@@ -4,6 +4,7 @@ using System.Data.SqlClient;
 using System.Linq;
 using System.Threading.Tasks;
 using CustomerModel;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using StoreBL;
@@ -21,6 +22,7 @@ namespace StoreApi.Controllers
         }
         // GET: api/Customer
         [HttpGet("GetAll")]
+        [Authorize(Roles = "User")]
         public IActionResult GetAllCustomers()
         {
             try

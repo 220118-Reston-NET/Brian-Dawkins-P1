@@ -52,7 +52,7 @@ namespace StoreApi.Controllers
         }
 
         // POST: api/Orders
-        // [HttpPost("PlaceOrder")]
+        [HttpPost("PlaceOrder")]
         // public IActionResult Post(int c_customerId, [FromBody] List<LineItems> c_cart, int c_storeId, int c_total)
         // {
         //     try
