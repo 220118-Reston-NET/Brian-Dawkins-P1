@@ -53,19 +53,20 @@ namespace StoreApi.Controllers
 
         // POST: api/Orders
         [HttpPost("PlaceOrder")]
-        // public IActionResult Post(int c_customerId, [FromBody] List<LineItems> c_cart, int c_storeId, int c_total)
-        // {
-        //     try
-        //     {
-        //        return Created("Successfully Created", _storeBL.PlaceOrder(c_customerId, c_storeId, c_total, c_cart)); 
-        //     }
-        //     catch (System.Exception ex)
-        //     {
+        public IActionResult Post(int c_customerId, [FromBody] List<LineItems> c_cart, int c_storeId, int c_total)
+        {
+            try
+            {
+                _storeBL.PlaceOrder(c_customerId, c_storeId, c_total, c_cart);
+               return Created("Successfully Created", ""); 
+            }
+            catch (System.Exception ex)
+            {
                 
-        //         return Conflict(ex.Message);
-        //     }
+                return Conflict(ex.Message);
+            }
             
-        // }
+        }
 
         // PUT: api/Orders/5
         [HttpPut("{id}")]

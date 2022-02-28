@@ -108,7 +108,6 @@ namespace StoreApi.Controllers
 
         // PUT: api/StoreApp/5
         [HttpPut("UpdateInventory")]
-        [Authorize(Roles = "Admin")]
         public IActionResult Put([FromQuery] int c_storeId, int c_productId, int c_quantity)
         {
 

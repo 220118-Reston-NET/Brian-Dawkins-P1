@@ -22,7 +22,6 @@ namespace StoreApi.Controllers
         }
         // GET: api/Customer
         [HttpGet("GetAll")]
-        [Authorize(Roles = "User")]
         public IActionResult GetAllCustomers()
         {
             try
