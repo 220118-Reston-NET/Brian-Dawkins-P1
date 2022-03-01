@@ -144,8 +144,8 @@ namespace StoreAppDL
             List<Orders> listOfOrders = new List<Orders>();
 
             string sqlQuery = @"select c.CustomerId, o.OrderId, o.total, o.DateCreated from Orders o  
-                                inner join customer c on o.CustomerId  = c.CustomerId
-                                where o.CustomerId = @CustomerId";
+                                inner join customer c on o.CustomerId  = c.CustomerId  where o.CustomerId = @CustomerId
+                                order by o.total DESC";
 
             using (SqlConnection con = new SqlConnection(_connectionStrings))
             {
@@ -173,8 +173,8 @@ namespace StoreAppDL
         {
             List<Orders> listOfOrders = new List<Orders>();
 
-            string sqlQuery = @"select * from Orders o  
-                                where o.StoreId = @StoreId";
+            string sqlQuery = @"select * from Orders o where o.StoreId = @StoreId 
+                               Order by DateCreated DESC";
 
             using (SqlConnection con = new SqlConnection(_connectionStrings))
             {
