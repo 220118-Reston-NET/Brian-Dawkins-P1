@@ -278,6 +278,45 @@ namespace StoreUnitTest
             Assert.Equal(_storeId, actualListOfStores[0].StoreId);
 
         }
+
+        [Fact]
+        public void Should_Replinish_Inventory()
+        {
+            //Arrange
+            int _storeId = 2;
+            int _productId = 2;
+            int _quantity = 100;
+            StoreFront _newStore = new StoreFront()
+            {
+                StoreId = _storeId,
+                ProductId = _productId,
+                Quantity = _quantity
+            };
+
+            List<StoreFront> expectedListOfStores = new List<StoreFront>();
+            expectedListOfStores.Add(_newStore);
+
+            //We are mocking one of the required dependecies of StoreAppBL which is IRepository
+            Mock<IRepository> mockRepo = new Mock<IRepository>();
+
+            //We change that if our IRepository.GetAllCustomers() is called it will always return our expectedListOfPoke
+            //In this way we guaranteed taht our dependency will always work so is something goes wrong it is the business layer's fault
+            mockRepo.Setup(repo => repo.ReplenishInventory(_newStore)).Returns(_newStore);
+        
+            //We passed in the mock version of IRepository
+            IStoreFrontBL _storeBL = new StoreFrontBL(mockRepo.Object); 
+            
+            //Act
+            List<StoreFront> actualListOfStores = _storeBL.ViewInventory(_newStore);
+            
+            //Assert
+            Assert.Same(expectedListOfStores, actualListOfStores); //Checks if both list are the same thing
+            Assert.Equal(_newStore, actualListOfStores[0].StoreId); 
+        
+            // When
+        
+            // Then
+        }
         }
         }
     

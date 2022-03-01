@@ -1,10 +1,5 @@
 using StoreAppDL;
 using StoreBL;
-using System.Text;
-using Microsoft.AspNetCore.Authentication.JwtBearer;
-using Microsoft.IdentityModel.Tokens;
-using Microsoft.OpenApi.Models;
-using Repository;
 
 var builder = WebApplication.CreateBuilder(args);
 

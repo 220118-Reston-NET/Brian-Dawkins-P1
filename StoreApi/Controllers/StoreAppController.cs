@@ -131,9 +131,9 @@ namespace StoreApi.Controllers
         }
 
         // DELETE: api/StoreApp/5
-        [HttpDelete("{id}")]
-        public void Delete(int id)
-        {
-        }
+        // [HttpDelete("{id}")]
+        // public void Delete(int id)
+        // {
+        // }
     }
 }
