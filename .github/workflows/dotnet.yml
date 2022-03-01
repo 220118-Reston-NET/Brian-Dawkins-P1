@@ -75,7 +75,7 @@ jobs:
       
     # Doing our unit test and making sure that all of it passes before even deploying this app 
     - name: Test
-      run: dotnet test --logger trx --collect:"Xplat Code Coverage" -- DataCollectionRunSetting.DataCollectors.DatCollector.Configuration.Format=opencover  
+      run: dotnet test --logger trx --collect:"Xplat Code Coverage" -- DataCollectionRunSetting.DataCollectors.DataCollector.Configuration.Format=opencover  
      
     # This is the step where you have to configure things  
     - name: Build and analyze
