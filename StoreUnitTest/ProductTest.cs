@@ -35,11 +35,11 @@ namespace StoreUnitTest
             int validPrice = 5;
         
             //Act
-            price._price = validPrice;
+            price.Price = validPrice;
         
             //Assert
-            Assert.NotNull(price._price);//checks that the property is not null meaning we did set data in this property
-            Assert.Equal(validPrice, price._price);//checks if the property does indeed hold the same value as what we set it as
+            Assert.NotNull(price.Price);//checks that the property is not null meaning we did set data in this property
+            Assert.Equal(validPrice, price.Price);//checks if the property does indeed hold the same value as what we set it as
         }
          /// <summary>
     /// Checks the validation for Name property for valid data

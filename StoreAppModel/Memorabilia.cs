@@ -4,15 +4,15 @@ public class Memorabilia
 {
     public int ProductId { get; set; }
     public string Name { get; set; }
-    public int _price { get; set; }
+    private int _price;
     public int Price
     {
-        get {return Price; }
+        get {return _price; }
         set
         {
             if (value > 0)
                 {
-                    Price = value; 
+                    _price = value; 
                 }
                 else
                 {

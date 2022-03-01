@@ -35,11 +35,11 @@ namespace StoreUnitTest
             int validquant = 10;
 
             //Act
-            quant._quantity = validquant;
+            quant.Quantity = validquant;
 
             //Assert
-            Assert.NotNull(quant._quantity);//checks that the property is not null meaning we did set data in this property
-            Assert. Equal(validquant, quant._quantity);//checks if the property does indeed hold the same value as what we set it as
+            Assert.NotNull(quant.Quantity);//checks that the property is not null meaning we did set data in this property
+            Assert. Equal(validquant, quant.Quantity);//checks if the property does indeed hold the same value as what we set it as
         }
     }
 }

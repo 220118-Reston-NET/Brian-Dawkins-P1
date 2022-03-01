@@ -5,15 +5,15 @@ namespace LineItemModel
         //Acts as our primary key 
         public int ItemId { get; set;}
         public string Product { get; set; }
-        public int _quantity { get; set; }
+        private int _quantity;
         public int Quantity
         {
-            get {return Quantity;}
+            get {return _quantity;}
             set
             {
                 if (value >= 0)
                 {
-                    Quantity = value; 
+                    _quantity = value; 
                 }
                 else
                 {
