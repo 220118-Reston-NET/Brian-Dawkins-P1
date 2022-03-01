@@ -143,7 +143,7 @@ namespace StoreAppDL
         {
             List<Orders> listOfOrders = new List<Orders>();
 
-            string sqlQuery = @"select c.CustomerId, o.OrderId, o.total from Orders o  
+            string sqlQuery = @"select c.CustomerId, o.OrderId, o.total, o.DateCreated from Orders o  
                                 inner join customer c on o.CustomerId  = c.CustomerId
                                 where o.CustomerId = @CustomerId";
 
@@ -162,7 +162,8 @@ namespace StoreAppDL
                         //Reader column is NOT based on table structure but based on what your select statement is displaying 
                         OrderId = reader.GetInt32(1),
                         CustomerId = reader.GetInt32(0),
-                        _total = reader.GetInt32(2)
+                        _total = reader.GetInt32(2),
+                        DateCreated = reader.GetDateTime(3)
                     });
                 }
             }
@@ -172,7 +173,7 @@ namespace StoreAppDL
         {
             List<Orders> listOfOrders = new List<Orders>();
 
-            string sqlQuery = @"select o.StoreId, o.OrderId, o.total from Orders o 
+            string sqlQuery = @"select o.StoreId, o.OrderId, o.total, o.DateCreated from Orders o 
                                 inner join Location l on o.StoreId = L.StoreId 
                                 where o.StoreId = @StoreId";
 
@@ -191,7 +192,8 @@ namespace StoreAppDL
                         //Reader column is NOT based on table structure but based on what your select statement is displaying 
                         OrderId = reader.GetInt32(1),
                         StoreId = reader.GetInt32(0),
-                        _total = reader.GetInt32(2)
+                        _total = reader.GetInt32(2),
+                        DateCreated = reader.GetDateTime(3)
                     });
                 }
             }

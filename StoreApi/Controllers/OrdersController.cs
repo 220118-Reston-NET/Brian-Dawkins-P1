@@ -25,10 +25,12 @@ namespace StoreApi.Controllers
         {
             try
             {
+                Log.Information("Successfully retrieved customer order by id");
                 return Ok(_storeBL.GetOrdersByCustomerId(c_customerId));
             }
             catch (SqlException)
             {
+                Log.Warning("Issue retrieving order by customer id");
                 //The API is responsible for sending the right resource and the right status code
                 //In this case if it was unable to connect to the database, it will give a 404 status code
                 return NotFound();
@@ -41,10 +43,12 @@ namespace StoreApi.Controllers
         {
             try
             {
+                Log.Information("Successfully got orders by store id");
                 return Ok(_storeBL.GetOrdersByStoreId(c_storeId));
             }
             catch (SqlException)
             {
+                Log.Warning("Issue getting orders by store id");
                 //The API is responsible for sending the right resource and the right status code
                 //In this case if it was unable to connect to the database, it will give a 404 status code
                 return NotFound();
@@ -57,12 +61,13 @@ namespace StoreApi.Controllers
         {
             try
             {
+                Log.Information("Order successfully created");
                 _storeBL.PlaceOrder(c_customerId, c_storeId, c_total, c_cart);
                return Created("Successfully Created", ""); 
             }
             catch (System.Exception ex)
             {
-                
+                Log.Warning("Issure creating order");
                 return Conflict(ex.Message);
             }
             

@@ -26,10 +26,12 @@ namespace StoreApi.Controllers
         {
             try
             {
+                Log.Information("Successfully got all customer");
                 return Ok(_storeBL.GetAllCustomers());
             }
             catch (SqlException)
             {
+                Log.Warning("Issue getting all customers");
                 //The API is responsible for sending the right resource and the right status code
                 //In this case if it was unable to connect to the database, it will give a 404 status code
                 return NotFound();
@@ -41,10 +43,12 @@ namespace StoreApi.Controllers
         {
             try
             {
+                Log.Information("Successfully got customer by id");
                return Ok(_storeBL.GetCustomerByID(customerId));  
             }
             catch (SqlException)
             {
+                Log.Warning("Issue getting customer by id");
                 //The API is responsible for sending the right resource and the right status code
                 //In this case if it was unable to connect to the database, it will give a 404 status code
                 return NotFound();
@@ -57,10 +61,12 @@ namespace StoreApi.Controllers
         {
             try
             {
+                Log.Information("Successfully Searched for Customer");
                return Ok(_storeBL.SearchCustomer(c_name));  
             }
             catch (SqlException)
             {
+                Log.Warning("Issue Searching for customer");
                 //The API is responsible for sending the right resource and the right status code
                 //In this case if it was unable to connect to the database, it will give a 404 status code
                 return NotFound();
@@ -79,6 +85,7 @@ namespace StoreApi.Controllers
         {
             try
             {
+                
                 return Created("Successfully added",_storeBL.AddCustomer(c_customer));
             }
             catch (System.Exception ex)

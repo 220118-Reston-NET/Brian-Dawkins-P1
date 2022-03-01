@@ -1,3 +1,4 @@
+global using Serilog;
 using System;
 using System.Collections.Generic;
 using System.Data.SqlClient;
@@ -52,10 +53,12 @@ namespace StoreApi.Controllers
         {
             try
             {
+                Log.Information("Successfully ran get all stores function");
                 return Ok(_storeBL.GetAllStores());
             }
             catch (SqlException)
             {
+                Log.Warning("Get all stores encountered error");
                 //The API is responsible for sending the right resource and the right status code
                 //In this case if it was unable to connect to the database, it will give a 404 status code
                 return NotFound();
@@ -74,10 +77,12 @@ namespace StoreApi.Controllers
         {
             try
             {
+                Log.Information("Successfully ran products by store Id");
                 return Ok(_storeBL.GetProductsByStoreId(c_storeId));
             }
             catch (SqlException)
             {
+                Log.Warning("Issure running products by Id");
                 //The API is responsible for sending the right resource and the right status code
                 //In this case if it was unable to connect to the database, it will give a 404 status code
                 return NotFound();
@@ -90,10 +95,12 @@ namespace StoreApi.Controllers
         {
             try
             {
+                Log.Information("Successfully ran View Inventory function");
                 return Ok(_storeBL.ViewInventory(c_storeId));
             }
             catch (SqlException)
             {
+                Log.Information("Issue running View Inventory function");
                 //The API is responsible for sending the right resource and the right status code
                 //In this case if it was unable to connect to the database, it will give a 404 status code
                 return NotFound();
@@ -114,12 +121,12 @@ namespace StoreApi.Controllers
             {
                 try
             {
-
+                Log.Information("Successfully Updated Inventory");
                 return Ok(_storeBL.ReplenishInventory(c_storeId, c_productId, c_quantity));
             }
             catch (System.Exception ex)
             {
-                
+                Log.Warning("Issue updating inventory");
                 return Conflict(ex.Message);
             }
             }

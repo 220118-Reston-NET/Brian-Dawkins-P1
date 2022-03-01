@@ -34,6 +34,8 @@ namespace OrderModel
             }
         }
 
+        public DateTime DateCreated { get; set; }
+
         public int CustomerId { get; set; }
         public string StoreLocation {get; set; }
          
