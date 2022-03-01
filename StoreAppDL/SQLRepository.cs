@@ -109,35 +109,35 @@ namespace StoreAppDL
             return listofStores;
         }
 
-        // public List<StoreFront> GetAllStoresById(int c_storeId)
-        // {
-        //     List<StoreFront> listOfStores = new List<StoreFront>();
+        public List<StoreFront> GetStoresById(int c_storeId)
+        {
+            List<StoreFront> listOfStores = new List<StoreFront>();
 
-        //     string sqlQuery = @"select o.OrderId, o.StoreId, total from Orders o 
-        //                         inner join Location l on o.StoreId = l.StoreId
-        //                         where o.StoreId = @StoreId";
+            string sqlQuery = @"select o.OrderId, o.StoreId, total from Orders o 
+                                inner join Location l on o.StoreId = l.StoreId
+                                where o.StoreId = @StoreId";
             
-        //     using (SqlConnection con = new SqlConnection(_connectionStrings))
-        //     {
-        //         con.Open();
+            using (SqlConnection con = new SqlConnection(_connectionStrings))
+            {
+                con.Open();
 
-        //         SqlCommand command = new SqlCommand(sqlQuery, con);
-        //         command.Parameters.AddWithValue("@StoreId", c_storeId);
+                SqlCommand command = new SqlCommand(sqlQuery, con);
+                command.Parameters.AddWithValue("@StoreId", c_storeId);
 
-        //         SqlDataReader reader = command.ExecuteReader();
+                SqlDataReader reader = command.ExecuteReader();
                 
-        //         while (reader.Read())
-        //         {
-        //             listOfStores.Add(new StoreFront(){
-        //                 //Reader column is NOT based on table structure but based on what your select statement is displaying 
-        //                 OrderId = reader.GetInt32(0),
-        //                 StoreId = reader.GetInt32(1),
-        //                 Total = reader.GetInt32(2)
-        //             });
-        //         }
-        //     }
-        //     return listOfStores;
-        // }
+                while (reader.Read())
+                {
+                    listOfStores.Add(new StoreFront(){
+                        //Reader column is NOT based on table structure but based on what your select statement is displaying 
+                        OrderId = reader.GetInt32(0),
+                        StoreId = reader.GetInt32(1),
+                        Total = reader.GetInt32(2)
+                    });
+                }
+            }
+            return listOfStores;
+        }
 
         public List<Orders> GetOrdersByCustomerId(int c_customerId)
         {
@@ -394,6 +394,7 @@ namespace StoreAppDL
         return listOfEmployee;
         
         }
+
     }
 }
 

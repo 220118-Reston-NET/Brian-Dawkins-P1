@@ -46,7 +46,7 @@ public interface IStoreFrontBL
     /// </summary>
     /// <param name="c_storeId"></param>
     /// <returns>list collection associated with store orders</returns>
-    List<StoreFront> GetAllStores(int c_storeId);
+    //List<StoreFront> GetAllStores(int c_storeId);
     List<Orders> GetOrdersByStoreId(int c_storeId);
     /// <summary>
     /// Will give the inventory associated with all of the store fronts 
@@ -55,7 +55,7 @@ public interface IStoreFrontBL
     /// <returns>list collection of inventory at each store location</returns>
     List<StoreFront> ViewInventory(int c_storeId);
     List<StoreFront> GetAllStores();
-    StoreFront GetStoresById(int c_storeId);
+    List<StoreFront> GetStoresById(int c_storeId);
     List<ProductModel> GetProductsByStoreId(int c_storeId);
     /// <summary>
     /// Will replinish product inventory to base store amount
@@ -63,7 +63,7 @@ public interface IStoreFrontBL
     /// <param name="c_productId"></param>
     List<StoreFront> ReplenishInventory(int c_storeId,int c_productId, int c_quantity);
     
-    ProductModel AddProducts(ProductModel p_name);
+    ProductModel AddProduct(ProductModel p_name);
     List<ProductModel> GetProducts();
     bool isAdmin(int c_empId, string pass);
     public Customer GetCustomerByID(int customerId)

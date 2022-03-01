@@ -84,10 +84,10 @@ namespace StoreBL
             return _repo.GetOrdersByStoreId(c_storeId);
         }
 
-        List<StoreFront> IStoreFrontBL.GetAllStores(int c_storeId)
-        {
-            throw new NotImplementedException();
-        }
+        // List<StoreFront> IStoreFrontBL.GetAllStores(int c_storeId)
+        // {
+        //     throw new NotImplementedException();
+        // }
 
         public List<StoreFront> GetAllStores()
         {
@@ -103,10 +103,9 @@ namespace StoreBL
         {
             return _repo.ReplenishInventory(c_storeId, c_productId, c_quantity);
         }
-        public  StoreFront GetStoresById(int storeid)
+        public  List<StoreFront> GetStoresById(int storeid)
         {
-            return GetAllStores().Where(storeid=>storeid.Equals(storeid)).First();
-
+            return _repo.GetStoresById(storeid);
         }
         public List<ProductModel> GetProductsByStoreId(int storeid)
         {
@@ -128,7 +127,7 @@ namespace StoreBL
 
         }
 
-        public ProductModel AddProducts(ProductModel pName)
+        public ProductModel AddProduct(ProductModel pName)
         {
             return _repo.AddProduct(pName);
         }
