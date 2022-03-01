@@ -361,6 +361,39 @@ namespace StoreAppDL
             }
             return p_name;
         }
+
+            public List<Employee> GetEmployee(int c_empId, string pass)
+        {
+            List<Employee> listOfEmployee = new List<Employee>();
+            
+            string sqlQuery = @"select * from Employee";
+
+            using (SqlConnection con = new SqlConnection(_connectionStrings))
+            {
+                //Opens connection to the database
+                con.Open();
+                
+                //Create command object 
+                SqlCommand command = new SqlCommand(sqlQuery, con);
+                
+
+                SqlDataReader reader = command.ExecuteReader();
+
+                while (reader.Read())
+                {
+                    listOfEmployee.Add(new Employee(){
+                        //Reader column is NOT based on table structure but based on what your select statement is displaying 
+                        
+                        EmployeeId = reader.GetInt32(0),
+                        Name = reader.GetString(1),
+                        password = reader.GetString(2),
+                        isAdmin = reader.GetBoolean(3)
+                    });
+            }
+        }
+        return listOfEmployee;
+        
+        }
     }
 }
 

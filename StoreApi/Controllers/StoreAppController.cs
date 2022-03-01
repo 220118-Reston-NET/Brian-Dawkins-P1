@@ -108,11 +108,13 @@ namespace StoreApi.Controllers
 
         // PUT: api/StoreApp/5
         [HttpPut("UpdateInventory")]
-        public IActionResult Put([FromQuery] int c_storeId, int c_productId, int c_quantity)
+        public IActionResult Put([FromQuery] int c_empId, string pass, int c_storeId, int c_productId, int c_quantity)
         {
-
-            try
+            if(_storeBL.isAdmin(c_empId,pass))
             {
+                try
+            {
+
                 return Ok(_storeBL.ReplenishInventory(c_storeId, c_productId, c_quantity));
             }
             catch (System.Exception ex)
@@ -120,6 +122,12 @@ namespace StoreApi.Controllers
                 
                 return Conflict(ex.Message);
             }
+            }
+            else
+            {
+                return StatusCode(401, "Access denied for user");
+            }
+            
         }
 
         // DELETE: api/StoreApp/5

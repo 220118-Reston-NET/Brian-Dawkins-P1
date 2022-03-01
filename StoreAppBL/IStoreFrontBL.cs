@@ -32,6 +32,8 @@ public interface IStoreFrontBL
         /// Will give a list of customers from the database
         /// </summary>
         /// <returns>list collection with customer objects</returns>
+        
+        List<Employee> GetEmployee(int c_empId, string pass);
         List<Customer> GetAllCustomers();
     /// <summary>
     /// Will give the order associated with a specific customer Id
@@ -63,6 +65,7 @@ public interface IStoreFrontBL
     
     ProductModel AddProducts(ProductModel p_name);
     List<ProductModel> GetProducts();
+    bool isAdmin(int c_empId, string pass);
     public Customer GetCustomerByID(int customerId)
     {
         return GetAllCustomers().Where(customer => customer.CustomerId.Equals(customerId)).First();

@@ -26,6 +26,7 @@ namespace StoreAppDL
     /// </summary>
     /// <returns></returns>
     List<Customer> GetAllCustomers();
+    List<Employee> GetEmployee(int c_empId, string pass);
 
     /// <summary>
     /// Will give a list of orders from a customer

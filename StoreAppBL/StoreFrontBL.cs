@@ -4,6 +4,7 @@ using OrderModel;
 using StoreFrontModel;
 using System.Linq;
 using StoreAppModel;
+using System.Data.SqlClient;
 
 namespace StoreBL
 {
@@ -141,5 +142,24 @@ namespace StoreBL
         {
             throw new NotImplementedException();
         }
+
+        public List<Employee> GetEmployee(int c_empId, string pass)
+        {
+            return _repo.GetEmployee(c_empId, pass);
+        }
+        public bool isAdmin(int c_empId, string pass)
+        {
+            try
+            {
+                Employee emp = new Employee();
+                emp = GetEmployee(c_empId, pass).Where(emp => emp.EmployeeId.Equals(c_empId) & emp.password.Equals(pass)).First();
+                return emp.isAdmin;
+            }
+            catch(Exception ex)
+            {
+                throw new Exception (ex.Message);
+            }
+        }
+
     }
 }
