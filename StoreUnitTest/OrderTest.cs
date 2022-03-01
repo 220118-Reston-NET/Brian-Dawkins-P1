@@ -35,11 +35,11 @@ namespace StoreUnitTest
             double validtotal = 22.50;
         
             //Act
-            tot._total = validtotal;
+            tot.Total = validtotal;
         
             //Assert
-            Assert.NotNull(tot._total);//checks that the property is not null meaning we did set data in this property
-            Assert.Equal(validtotal, tot._total);//checks if the property does indeed hold the same value as what we set it as
+            Assert.NotNull(tot.Total);//checks that the property is not null meaning we did set data in this property
+            Assert.Equal(validtotal, tot.Total);//checks if the property does indeed hold the same value as what we set it as
         }
     }
 }

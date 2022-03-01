@@ -17,15 +17,15 @@ namespace OrderModel
             }
         }
         public string Location { get; set ;}
-        public double _total {get; set; }
+        private double _total;
         public double Total
         {
-            get {return Total; }
+            get {return _total; }
             set
             {
                 if (value > 0)
                 {
-                    Total = value; 
+                    _total = value; 
                 }
                 else
                 {
@@ -38,6 +38,18 @@ namespace OrderModel
 
         public int CustomerId { get; set; }
         public string StoreLocation {get; set; }
+
+        public Orders()
+        {
+            OrderId = 0;
+            StoreId = 2;
+            _total = 50;
+            DateCreated = new DateTime();
+            CustomerId = 5;
+            StoreLocation = "Southside";
+            Location = "Northiside";
+
+        }
          
         public override string ToString()
         {
